@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - StyleMan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .title h1 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .navbar .pages a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .pages a:hover,
+        .navbar .pages a.active {
+            color: #007bff;
+        }
+
+        .navbar .icons a {
+            color: #333;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .navbar .icons a.active i {
+            color: #007bff;
+        }
+
+        /* Product styles */
+        .product {
+            display: flex;
+            margin: 2rem auto;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-info .price {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .product-info .description {
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer h2 {
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer i {
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+            }
+
+            .navbar .pages,
+            .navbar .icons {
+                margin-top: 1rem;
+            }
+
+            .product {
+                flex-direction: column;
+            }
+
+            .product-img,
+            .product-info {
+                padding: 1rem;
+            }
+
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer .call2 {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--  header  -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="title"><h1>StyleMan</h1></div>
+            <div class="pages">
+                <a href="../index.html">Home</a>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="icons">
+                <a href="sign-in.html"><i class="fa-regular fa-user"></i></a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!--   Product   -->
+    <section class="product container">
+        <div class="product-img">
+            <img id="product-image" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h2 id="product-name"></h2>
+            <p class="price" id="product-price"></p>
+            <p class="description" id="product-description"></p>
+            <button class="add-to-cart" onclick="addToCart(productName, productPrice, productImage)">Add to Cart</button>
+        </div>
+    </section>
+
+    <!--   Footer-->
+    <footer>
+        <div class="container">
+            <div class="call">
+                <h2>Style Man</h2>
+                <p>username: AbdoMohamed</p>
+                <p>whatsapp: <i class="fab fa-whatsapp"></i> 01019358366</p>
+                <p>Gmail: <i class="fas fa-envelope"></i> abdomohamedunity2023@gmail.com</p>
+            </div>
+            <div class="call2">
+                <h2>Available payment methods</h2>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get product details from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('name');
+        const productPrice = parseFloat(urlParams.get('price'));
+        const productImage = urlParams.get('image');
+        const productDescription = urlParams.get('description');
+
+        // Populate product details
+        document.getElementById('product-name').textContent = productName;
+        document.getElementById('product-price').textContent = `$${productPrice.toFixed(2)}`;
+        document.getElementById('product-image').src = productImage;
+        document.getElementById('product-description').textContent = productDescription;
+
+        function addToCart(name, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price, image });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Item added to cart!');
+        }
+    </script>
+</body>
+</html>
+

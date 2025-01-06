@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - StyleMan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .title h1 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .navbar .pages a {
+            text-decoration: none;
+            color: #333;
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .pages a:hover,
+        .navbar .pages a.active {
+            color: #007bff;
+        }
+
+        .navbar .icons a {
+            color: #333;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .navbar .icons a.active i {
+            color: #007bff;
+        }
+
+        .navbar .icons a i:hover{
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        /* Cart styles */
+        .cart-section {
+            padding: 2rem 0;
+        }
+
+        .cart-table {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cart-table th,
+        .cart-table td {
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .cart-table th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .cart-table img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-table .remove-btn {
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-table .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        .cart-total {
+            margin-top: 1rem;
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 200px;
+            margin: 1rem 0 0 auto;
+            padding: 0.75rem;
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer h2 {
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer i {
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 390px) {
+            .navbar .container .icons{
+                width: 100px;
+            }
+            .navbar .container .icons i{
+                font-size: 15px;
+                margin: 0;
+            }
+            .navbar .container .title h1{
+                font-size: 20px;
+            }
+            .navbar .container .pages{
+                width: 250px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!--  header  -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="title"><h1>StyleMan</h1></div>
+            <div class="pages">
+                <a href="../index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="icons">
+                <a href="sign-in.html"><i class="fa-regular fa-user"></i></a>
+                <a href="#" class="active"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h2>Your Cart</h2>
+            <table class="cart-table">
+                <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+                </tbody>
+            </table>
+            <div class="cart-total">Total: $<span id="cart-total">0</span></div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <!--   Footer-->
+    <footer>
+        <div class="container">
+            <div class="call">
+                <h2>Style Man</h2>
+                <p>username: AbdoMohamed</p>
+                <p>whatsapp: <i class="fab fa-whatsapp"></i> 01019358366</p>
+                <p>Gmail: <i class="fas fa-envelope"></i> abdomohamedunity2023@gmail.com</p>
+            </div>
+            <div class="call2">
+                <h2>Available payment methods</h2>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            let total = 0;
+
+            cartItems.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                        <td><img src="${item.image}" alt="${item.name}"></td>
+                        <td>${item.name}</td>
+                        <td>$${item.price}</td>
+                        <td><button class="remove-btn" onclick="removeItem(${index})">Remove</button></td>
+                    `;
+                cartItems.appendChild(row);
+                total += item.price;
+            });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // Initial render
+        renderCart();
+
+        // Add this function to your shop.html page
+        function addToCart(name, price, image) {
+            cart.push({ name, price, image });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert('Item added to cart!');
+        }
+    </script>
+</body>
+</html>
+

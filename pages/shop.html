@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Shop</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+
+        /* Search styles */
+        .main-search {
+            padding: 2rem 0;
+        }
+
+        .main-search .search {
+            position: relative;
+            max-width: 600px;
+            display: flex;
+            background-color: #fff;
+            border-radius: 50px;
+            overflow: hidden;
+            margin-top: 50px;
+            margin-left: 270px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .search::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #0170F0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .search:focus-within::before {
+            transform: scaleX(1);
+        }
+
+        .input-search {
+            flex-grow: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0170F0;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button i:hover{
+            color: white;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /*shop*/
+        .all-clothes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        /* Complaint form styles */
+        .complaint-shop {
+            background-color: #fff;
+            padding: 2rem;
+            margin-top: 1800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .complaint-shop .text {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .complaint-shop form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .complaint-shop label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .complaint-shop input,
+        .complaint-shop textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .complaint-shop textarea {
+            height: 100px;
+        }
+
+        .complaint-shop .submit {
+            background-color: #0170F0;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .complaint-shop .submit:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        footer h2 {
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer i {
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 360px){
+            .main-search .search{
+                margin-right: 1000px;
+            }
+
+
+        }
+
+        @media (max-width: 768px){
+            .main-search .search{
+                margin-left: 0;
+            }
+
+            .complaint-shop{
+                margin-top: 3000px;
+            }
+        }
+
+
+        @media (max-width: 986px){
+            .main-search .search{
+                margin-left: 180px;
+            }
+
+            .complaint-shop{
+                margin-top: 2200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!--  header  -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="title"><h1>StyleMan</h1></div>
+            <div class="pages">
+                <a href="../index.html">Home</a>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="icons">
+                <a href="sign-in.html"><i class="fa-regular fa-user"></i></a>
+                <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!--  search  -->
+    <section class="main-search">
+        <div class="container">
+            <form class="search">
+                <input type="text" placeholder="Search..." class="input-search" onkeyup="search()">
+                <button class="button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+
+            <!--  best-offer  -->
+            <div class="best-offer">
+                <div class="title-best"><h3>Shop</h3></div>
+                <div class="all-clothes">
+                    <!-- Navy blue sports jacket with beige and white colors (1) -->
+                    <a  href="product.html?name=Navy blue sports jacket with beige and white colors&price=30&image=/images/jacket-7.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-7.jpeg" alt="no image" style="height: 270px">
+                            <h2>Navy blue sports jacket with beige and white colors</h2>
+                            <p class="price">$30</p>
+                            <button class="btn-buy" type="submit">Buy</button>
+                        </div>
+                    </a>
+
+                    <!-- Brown and white casual jacket -->
+                    <a  href="product.html?name=Brown and white casual jacket&price=45&image=/images/jacket-8.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-8.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Brown and white casual jacket</h2>
+                            <p class="price">45$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!-- Green Plaid Shirt with Black Hood  -->
+                    <a  href="product.html?name=Green Plaid Shirt with Black Hood&price=30&image=/images/jacket-9.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-9.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Green Plaid Shirt with Black Hood</h2>
+                            <p class="price">30$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!--  Black T-shirt with white graphics on the sleeves  -->
+                    <a  href="product.html?name=Black T-shirt with white graphics on the sleeves&price=20&image=/images/jacket-10.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-10.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Black T-shirt with white graphics on the sleeves</h2>
+                            <p class="price">20$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!--  Black jacket with water resistant materials   -->
+                    <a  href="product.html?name=Black jacket with water resistant materials&price=50&image=/images/jacket-11.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-11.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Black jacket with water resistant materials</h2>
+                            <p class="price">50$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!--   Blue check shirt with grey hood  -->
+                    <a  href="product.html?name=Blue check shirt with grey hood&price=30&image=/images/jacket-12.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-12.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Blue check shirt with grey hood</h2>
+                            <p class="price">30$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!--   Black and white checkered shirt  -->
+                    <a  href="product.html?name=Black and white checkered shirt&price=250&image=/images/jacket-13.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-13.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Black and white checkered shirt</h2>
+                            <p class="price">25$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!--  Black jacket with simple hood -->
+                    <a  href="product.html?name=Black jacket with simple hood&price=25&image=/images/jacket-14.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-14.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Black jacket with simple hood</h2>
+                            <p class="price">25$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!-- White and purple checkered shirt with orange undershirt -->
+                    <a  href="product.html?name=White and purple checkered shirt with orange undershirt.&price=30&image=/images/jacket-15.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-15.jpeg" alt="No picture" style="height: 270px">
+                            <h2>White and purple checkered shirt with orange undershirt.</h2>
+                            <p class="price">30$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!--  Grey jacket with blue trim -->
+                    <a  href="product.html?name=Grey jacket with blue trim&price=70&image=/images/jacket-16.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-16.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Grey jacket with blue trim</h2>
+                            <p class="price">70$</p>
+                            <p style="display:none;">Description: Heavyweight lined winter jacket for warmth, in grey with blue details on the hood and zipper.
+                                Material: Polyester lined with fiber.</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+                    <!--  Black jacket with gray sleeves without buttons -->
+                    <a  href="product.html?name=Black jacket with gray sleeves without buttons&price=50&image=/images/jacket-17.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-17.jpeg" alt="No picture" style="height: 300px">
+                            <h2>Black jacket with gray sleeves without buttons</h2>
+                            <p class="price">50$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                    <!-- Yellow and blue checkered shirt with black hood-->
+                    <a  href="product.html?name=Yellow and blue checkered shirt with black hood&price=45&image=/images/jacket-18.jpeg&description=Description: Casual shirt in yellow and black with a hood that suits modern youth looks.
+                                Material: Cotton and polyester blend.">
+                        <div class="clothe" style="height: 550px">
+                            <img src="/images/jacket-18.jpeg" alt="No picture" style="height: 270px">
+                            <h2>Yellow and blue checkered shirt with black hood</h2>
+                            <p class="price">45$</p>
+                            <button class="btn-buy">buy</button>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complaint   -->
+    <section class="complaint-shop">
+        <div class="container">
+            <div class="text">
+                <h4>Enter The Information for Complaint</h4>
+            </div>
+            <div class="forms">
+                <form>
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="Enter your first name">
+                    <label for="last-name">Second Name</label>
+                    <input type="text" id="last-name" placeholder="Enter your second name">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                    <label for="complaint">Enter a Complaint</label>
+                    <textarea id="complaint" placeholder="Write your complaint"></textarea>
+                    <button class="submit" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!--   Footer-->
+    <footer>
+        <div class="container">
+            <div class="call">
+                <h2>Style Man</h2>
+                <p>username: AbdoMohamed</p>
+                <p>whatsapp: <i class="fab fa-whatsapp"></i> 01019358366</p>
+                <p>Gmail: <i class="fas fa-envelope"></i> abdomohamedunity2023@gmail.com</p>
+            </div>
+            <div class="call2">
+                <h2>Available payment methods</h2>
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

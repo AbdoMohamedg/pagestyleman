@@ -1,0 +1,471 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background-color: #f4f4f9;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* header */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #f8f8f8;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .title h1 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.navbar .pages a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar .pages a:hover,
+.navbar .pages a.active {
+    color: #007bff;
+}
+
+.navbar .icons a {
+    color: #333;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    transition: .3s all ease;
+}
+
+.navbar .icons a i:hover{
+    color: #007bff;
+    font-weight: 600;
+}
+
+
+/* Hero */
+.hero{
+    display: flex;
+    align-items: center;
+    background-image: url("../images/hero-image.png");
+    /*background-size: cover;*/
+    width: 100%;
+    height: 900px;
+}
+
+.hero .hero-items {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    margin-left: 50px;
+}
+
+.hero .hero-items h2{
+    color: white;
+    font-size: 4em;
+    margin: 0 0 30px 0;
+    width: 500px;
+}
+
+.hero .hero-items .span{
+    width: 300px;
+    margin: 0 0 30px 0;
+    /*border: 2px solid #fff;*/
+}
+
+.hero .hero-items .span span{
+    color: white;
+    font-size: 1.2em;
+}
+
+.hero .hero-items .btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    transition: .3s all ease;
+}
+
+.hero .hero-items .btn:hover{
+    background-color: black;
+    color: aqua;
+    border: 1px solid white;
+}
+
+/* best-offer */
+.best-offer{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    flex-direction: column;
+    padding: 80px 0;
+}
+
+.best-offer .title-best {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.best-offer .title-best h3{
+    font-size: 1.7em;
+    font-weight: 700;
+}
+
+.best-offer .title-best::after{
+    content: '';
+    position: absolute;
+    margin-top: 50px;
+    width: 100px;
+    height: 5px;
+    border-radius: 20px;
+    background-color: red;
+}
+
+
+.all-clothes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.best-offer .all-clothes .clothe{
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    height: 500px;
+    transition: transform 0.3s;
+}
+
+.best-offer .all-clothes .clothe:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.best-offer .all-clothes .clothe img{
+    width: 100%;
+    height: 280px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.best-offer .all-clothes .clothe h2{
+    font-size: 20px;
+    color: #333333;
+    margin: 15px 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.best-offer .all-clothes .clothe .price{
+    font-size: 18px;
+    color: #0170F0;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.best-offer .all-clothes .clothe .btn-buy{
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.best-offer .all-clothes .clothe .btn-buy:hover{
+    background-color: #2980b9;
+}
+
+
+/* reviews */
+.review-main {
+    text-align: center;
+    padding: 20px;
+    margin-top: 1050px;
+}
+
+.title-review h4 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.all-reviews {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.review {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.review:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.review h4 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.review p {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.stars {
+    color: #f1c40f;
+    margin-bottom: 15px;
+}
+
+.client-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #2980b9;
+}
+
+/* complaint */
+.complaint {
+    background-color: #f8f8f8;
+    padding: 3rem 0;
+}
+
+.complaint .text {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.complaint form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.complaint label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.complaint input,
+.complaint textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.complaint textarea {
+    height: 150px;
+}
+
+.complaint .submit {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.complaint .submit:hover {
+    background-color: #0056b3;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer h2 {
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer i {
+    margin-right: 0.5rem;
+}
+
+
+/*==================== page ===============================*/
+/* Shop page */
+/* Search */
+.main-search{
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 200px;
+}
+.main-search .search {
+    position: relative;
+    width: 600px;
+    background-color: #fff;
+    display: flex;
+    margin-top: 100px;
+    margin-left: 320px;
+}
+
+.main-search .search:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0170F0;
+    transform: translateX(0);
+    transform-origin: center;
+    transition: transform .25s;
+}
+
+.main-search .search:focus-within::before{
+    transform: scale(1);
+}
+
+.search input,
+.search button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #8e8e8e;
+}
+
+.input-search{
+    width: 100%;
+    padding: 10px;
+}
+
+.button{
+    display: grid;
+    place-items: center;
+    width: 50px;
+    font-size: 19px;
+    cursor: pointer;
+    transition: color .25s;
+}
+
+.button:hover{
+    color: #0170F0;
+}
+
+/*============================ page =================================*/
+/* About main section */
+.about-main {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.about-main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-main .span {
+    font-size: 1.1rem;
+}
+
+/* About services section */
+.about-serv {
+    padding: 3rem 0;
+}
+
+.about-serv .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.about-serv .item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.about-serv .img {
+    flex: 1;
+    padding: 1rem;
+}
+
+.about-serv .img img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.about-serv .source {
+    flex: 1;
+    padding: 1rem;
+}
+
+.about-serv h2 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 986px){
+    .review-main{
+        margin-top: 1500px;
+    }
+}
+
+
+
+
